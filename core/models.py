@@ -11,4 +11,4 @@ class TimeStampedModel(models.Model):
     updated = models.DateTimeField(auto_now=True)  # 모델을 저장할때마다 새로운날짜로 업데이트
 
     class Meta:
-        abstract = True
+        abstract = True  # 데이터베이스에 모델이 나타나지 않게 해줌. abstract 모델. 갖다쓰는 용도로만 쓰겠다는 느낌
