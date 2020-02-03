@@ -57,7 +57,7 @@ class Photo(core_models.TimeStampedModel):
     """ Photo Model Definition """
 
     caption = models.CharField(max_length=80)
-    file = models.ImageField()
+    file = models.ImageField(upload_to="room_photos")
     room = models.ForeignKey(
         "Room", related_name="photos", on_delete=models.CASCADE
     )  # 파이썬은 상하수직방향으로 변수를 읽어서, Room이 밑에 있어서 에러가 날 수 있음. String으로 바꿔주면 해결됨
@@ -101,3 +101,10 @@ class Room(core_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def total_rating(self):
+        all_reviews = self.reviews.all()
+        all_ratings = 0
+        for review in all_reviews:
+            all_ratings += review.rating_average()
+        return round(all_ratings / len(all_reviews), 2)

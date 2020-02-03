@@ -30,7 +30,7 @@ class User(AbstractUser):  # AbstractUser를 상속함
 
     # 빈칸 허용 -> null=True는 데이터베이스에서 먹히는거고, form에서도 먹히려면 blank=True 사용
     avatar = models.ImageField(
-        blank=True
+        upload_to="avatars", blank=True
     )  # imagefiled 사용하려면 pillow 설치해야함(pipenv install Pillow)
     gender = models.CharField(
         choices=GENDER_CHOICES, max_length=10, blank=True
