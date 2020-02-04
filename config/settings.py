@@ -130,4 +130,4 @@ AUTH_USER_MODEL = "users.User"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"  # / 로 시작하면 절대경로로 인식됨

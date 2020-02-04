@@ -34,4 +34,5 @@ class Review(core_models.TimeStampedModel):
         ) / 6
         return round(avg, 2)
 
-    rating_average.short_description = "Avg."
+    rating_average.short_description = "Avg." # 함수로 리스트를 노출하고 싶지 않으면 다른걸로 바꿀 수 있음
+    
